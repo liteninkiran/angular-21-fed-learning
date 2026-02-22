@@ -1,18 +1,18 @@
-<div class="flex justify-center items-center h-screen w-full">
-  <form (submit)="onSubmit($event)" class="lg:w-1/4 w-1/2 p-4 bg-white rounded shadow-md">
+<div class="main-container">
+  <form (submit)="onSubmit($event)" class="login-form">
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold">
+      <label class="login-label">
         Email:
         <input
           type="email"
           id="email"
           placeholder="Enter email"
           [formField]="loginForm.email"
-          class="block w-full p-2 border border-gray-300 rounded mt-2"
+          class="login-input"
         />
       </label>
       @if (loginForm.email().touched() && loginForm.email().invalid()) {
-        <ul class="text-red-600 text-sm mt-2">
+        <ul class="login-ul">
           @for (error of loginForm.email().errors(); track error) {
             <li>{{ error.message }}</li>
           }
@@ -21,19 +21,19 @@
     </div>
 
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold">
+      <label class="login-label">
         Password:
         <input
           type="password"
           id="password"
           placeholder="Enter password"
           [formField]="loginForm.password"
-          class="block w-full p-2 border border-gray-300 rounded mt-2"
+          class="login-input"
         />
       </label>
 
       @if (loginForm.password().touched() && loginForm.password().invalid()) {
-        <ul class="text-red-600 text-sm mt-2">
+        <ul class="login-ul">
           @for (error of loginForm.password().errors(); track error) {
             <li>{{ error.message }}</li>
           }
@@ -43,7 +43,7 @@
     <button
       type="submit"
       [disabled]="loginForm().invalid()"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      class="login-btn"
       [ngClass]="{
         'opacity-500 cursor-not-allowed': loginForm().invalid(),
         'cursor-pointer': !loginForm().invalid(),
