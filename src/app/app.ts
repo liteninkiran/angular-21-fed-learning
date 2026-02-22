@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { SignalForms } from './signal-forms/signal-forms';
+import { Aria } from './aria/aria';
 
 @Component({
   selector: 'app-root',
-  imports: [SignalForms],
+  imports: [Aria],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
