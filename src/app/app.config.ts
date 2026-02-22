@@ -10,8 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    // Not strictly speaking needed
     provideHttpClient(withFetch()),
-    // provideZonelessChangeDetection is not needed as of Angular 21
   ],
 };
