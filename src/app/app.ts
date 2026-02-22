@@ -14,6 +14,11 @@ interface LoginData {
   styleUrl: './app.css',
 })
 export class App {
+  public isActive = signal<boolean>(true);
+  public isVisible = signal<boolean>(true);
+
+  public headingStyles = signal(headingStyles);
+
   public loginModel = signal<LoginData>({
     email: '',
     password: '',
@@ -32,3 +37,13 @@ export class App {
     console.log(this.loginModel());
   }
 }
+
+const headingStyles = {
+  color: 'white',
+  padding: '10px',
+  'background-color': 'brown',
+  'font-weight': 'bold',
+  'margin-bottom': '10px',
+  'border-radius': '5px',
+  'text-align': 'center',
+};

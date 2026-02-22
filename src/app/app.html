@@ -1,5 +1,13 @@
 <div class="main-container">
   <form (submit)="onSubmit($event)" class="login-form">
+    <!-- <h2 [ngClass]="{ 'active-class': isActive() }">Signal Login Form</h2> -->
+    <!-- <h2 [class.active-class]="isActive()">Signal Login Form</h2> -->
+
+    <!-- <h2 [ngStyle]="{'display' : isVisible() ? 'block' : 'none'}">Signal Login Form</h2> -->
+    <!-- <h2 [style.display]="isVisible() ? 'block' : 'none'">Signal Login Form</h2> -->
+
+    <h2 [style]="headingStyles()">Signal Login Form</h2>
+
     <div class="mb-4">
       <label class="login-label">
         Email:
@@ -44,10 +52,7 @@
       type="submit"
       [disabled]="loginForm().invalid()"
       class="login-btn"
-      [ngClass]="{
-        'opacity-500 cursor-not-allowed': loginForm().invalid(),
-        'cursor-pointer': !loginForm().invalid(),
-      }"
+      [class]="loginForm().invalid() ? 'opacity-500 cursor-not-allowed' : 'cursor-pointer'"
     >
       Login
     </button>
